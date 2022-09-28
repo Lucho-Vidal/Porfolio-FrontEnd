@@ -1,15 +1,39 @@
 <div class="row">
-    <div class="container">
-        <div class="logo">
-            <img src="../../../assets/APLogo.png" id="logoAP">
+    <div class=" container navbar navbar-expand-lg navbar-dark ">
+        
+        <div class="container ">
+            <div class="logo col-1">
+                <a href="/"><img src="../../../assets/APLogo.png" id="logoAP"></a>
+            </div>
+            <div class="redes col-2">
+                <a href="" target="_blank"><img src="../../../assets/linkedin.png" id="linkedin"></a>
+                <a href="" target="_blank"><img src="../../../assets/twitter.png" id="twitter"></a>
+                <a href="" target="_blank"><img src="../../../assets/github.png" id="github"></a>
+                
+                <!--<button type="button" class="btn btn-outline-light" (click)="login()">Ingresar</button>-->
+            </div>
         </div>
-        <div class="redes">
-            <a href=""><img src="../../../assets/linkedin.png" id="linkedin"></a>
-            <a href=""><img src="../../../assets/twitter.png" id="twitter"></a>
-            <a href=""><img src="../../../assets/instagram.png" id="instagram"></a>
-            <a href=""><img src="../../../assets/github.png" id="github"></a>
-            <a href=""><img src="../../../assets/facebook.png" id="facebook"></a>
-            <button type="button" class="btn btn-outline-light" (click)="login()">Ingresar</button>
-        </div>
+            <div class="inline col-2" id="navbarNav">
+                <ul class="row navbar-nav ml-auto">
+                    <li class="nav-item col-1">
+                        <a class="nav-link inline " routerLink="/">
+                            <i class="fas fa-home" style="padding: 5px;"></i> Inicio</a>
+                    </li>
+                </ul>
+                <ul class=" navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link inline" *ngIf="!isLogged" routerLink="/login">
+                            <i class="fas fa-sign-in-alt"style="padding: 5px;"></i> Iniciar Sesión</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link inline" *ngIf="isLogged" (click)="onlogOut()" routerLink="/">
+                            <i class="fas fa-door-open"style="padding: 5px;"></i> Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>       
+        
+        
     </div>
 </div>

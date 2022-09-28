@@ -4,17 +4,19 @@
 }
 img{
     width: 40px;  
-    margin-right: 15px;
+    margin-right: 1px;
 }
 div{
-    margin-right: 50px;
-}
-.container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #034d6c;
+    color: #efefef;
 }
 
+.inline{
+    display: flex;
+    margin-right: 0;
+    list-style: none;
+    padding: 0;
+}
 /*--- Para la vista de celular ---*/
 @media (max-width:575px){
     .container{
@@ -23,5 +25,6 @@ div{
     .redes{
         display: flex;
         align-items: center;
+        margin-right: 2px;
     }
 }

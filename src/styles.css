@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    font-family: 'Rufina', sans-serif;
+}
+body {
+    background-color: #efefef !important;
+    margin: 0;
+    color: #034d6c
+}
