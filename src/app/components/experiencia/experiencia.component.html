@@ -1,29 +1,21 @@
 <div class="row">
-    <h1>Experiencia laboral</h1>
+    <h1 *ngIf="experiencia">Experiencia laboral</h1>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dark" routerLink="/nuevaExperiencia" *ngIf="isLogged">
+            Nueva Experiencia
+        </button>
+    </div>
     <div class="col-lg-1"></div>
     <div class="col-lg-11">
-        <ul>
-            <li>
-                <h1>Trabajo 1</h1> - <h3>(years)</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Voluptate quisquam vitae, odio atque, voluptatem similique itaque, 
-                    nemo incidunt magnam corrupti in illum veniam provident! Fugiat, 
-                    enim? Soluta reiciendis eos exercitationem.</p>
-            </li>
-            <li>
-                <h1>Trabajo 2</h1> - <h3>(years)</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Voluptate quisquam vitae, odio atque, voluptatem similique itaque, 
-                    nemo incidunt magnam corrupti in illum veniam provident! Fugiat, 
-                    enim? Soluta reiciendis eos exercitationem.</p>
-            </li>
-            <li>
-                <h1>Trabajo 3</h1> - <h3>(years)</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Voluptate quisquam vitae, odio atque, voluptatem similique itaque, 
-                    nemo incidunt magnam corrupti in illum veniam provident! Fugiat, 
-                    enim? Soluta reiciendis eos exercitationem.</p>
-            </li>
-        </ul>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let expe of experiencia">
+                    <td>{{expe.nombreE}}</td>
+                    <td>{{expe.descripcionE}}</td>
+                    <td>Editar</td>
+                    <td>Borrar</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

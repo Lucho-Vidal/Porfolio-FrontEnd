@@ -18,6 +18,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegistroComponent } from './components/auth/registro.component';
+import { interceptProvider } from './service/interceptor-service';
+import { NewExperienciaComponent } from './components/experiencia/new-experiencia/new-experiencia.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { RegistroComponent } from './components/auth/registro.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    NewExperienciaComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,9 @@ import { RegistroComponent } from './components/auth/registro.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    interceptProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
