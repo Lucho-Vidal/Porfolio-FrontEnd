@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { RegistroComponent } from './components/auth/registro.component';
 import { interceptProvider } from './service/interceptor-service';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia/new-experiencia.component';
+import { ToastrModule } from 'ngx-toastr';
+import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,12 +37,14 @@ import { NewExperienciaComponent } from './components/experiencia/new-experienci
     HomeComponent,
     LoginComponent,
     RegistroComponent,
-    NewExperienciaComponent
+    NewExperienciaComponent,
+    EditExperienciaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
+    ToastrModule.forRoot(),
     HttpClientModule,
     FormsModule
   ],

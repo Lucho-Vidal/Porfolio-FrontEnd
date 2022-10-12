@@ -4,12 +4,14 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login.component';
 import { RegistroComponent } from './components/auth/registro.component';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia/new-experiencia.component';
+import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
   {path:'login',component: LoginComponent},
   {path:'registro',component: RegistroComponent},
-  {path:'nuevaExperiencia',component:NewExperienciaComponent}
+  {path:'nuevaExperiencia',component:NewExperienciaComponent},
+  {path:'editExperiencia',component:EditExperienciaComponent}
 ];
 
 @NgModule({
