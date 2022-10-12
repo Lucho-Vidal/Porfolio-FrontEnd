@@ -4,7 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login.component';
 import { RegistroComponent } from './components/auth/registro.component';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia/new-experiencia.component';
-import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
+import { EditExperienciaComponent } from './components/experiencia/edit/edit-experiencia.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
