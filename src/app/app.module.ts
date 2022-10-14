@@ -24,6 +24,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { EditExperienciaComponent } from './components/experiencia/edit/edit-experiencia.component';
 import { EditEducacionComponent } from './components/educacion/edit-educacion/edit-educacion.component';
 import { NewEducacionComponent } from './components/educacion/new-educacion/new-educacion.component';
+import { HysComponent } from './components/hys/hys/hys.component';
+import { EditSkillComponent } from './components/hys/edit-skill/edit-skill.component';
+import { NewSkillComponent } from './components/hys/new-skill/new-skill.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,10 @@ import { NewEducacionComponent } from './components/educacion/new-educacion/new-
     NewExperienciaComponent,
     EditExperienciaComponent,
     EditEducacionComponent,
-    NewEducacionComponent
+    NewEducacionComponent,
+    HysComponent,
+    EditSkillComponent,
+    NewSkillComponent
   ],
   imports: [
     BrowserModule,
