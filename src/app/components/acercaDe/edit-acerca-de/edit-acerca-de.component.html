@@ -1,0 +1,87 @@
+<app-logo-ap></app-logo-ap>
+<div class="container d-flex justify-content-center mt-4">
+  <div class="row">
+    <h1>Editar persona:</h1>
+    <div class="mt-5">
+      <div class="container" *ngIf="persona">
+        <div class="row">
+          <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+              <div class="row align-items">
+              <div class="form-group col-6">
+                <label for="nombre">Nombre:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nombre"
+                  name="nombre"
+                  [(ngModel)]="persona.nombre"
+                  required
+                />
+              </div>
+              <div class="form-group col-6">
+                <label for="apellido">Apellido:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="apellido"
+                  name="apellido"
+                  [(ngModel)]="persona.apellido"
+                  required
+                />
+              </div>
+            </div>
+              <div class="form-group mt-3">
+                <label for="locacion">Ciudad de residencia:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="locacion"
+                  name="locacion"
+                  [(ngModel)]="persona.locacion"
+                  required
+                />
+              </div>
+              <div class="form-group mt-3">
+                <label for="titulo">Titulo:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo"
+                  name="titulo"
+                  [(ngModel)]="persona.titulo"
+                  required
+                />
+              </div>
+              <div class="form-group mt-3">
+                <label for="descripcion">Descripcion acerca de mi:</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="descripcion"
+                  name="descripcion"
+                  rows="3"
+                  [(ngModel)]="persona.descripcion"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group mt-3">
+                <label for="img">Imagen de Perfil</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="img"
+                  name="img"
+                  [(ngModel)]="persona.img"
+                  (change)="uploadImage($event)"
+                  accept=".jpg,.jpeg,.png"
+                />
+              </div>
+              <button class="btn btn-primary mt-3">Actualizar Persona</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

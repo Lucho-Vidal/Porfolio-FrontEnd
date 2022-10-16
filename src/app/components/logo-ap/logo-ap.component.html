@@ -5,19 +5,26 @@
         <a href="/"><img src="../../../assets/APLogo.png" id="logoAP" /></a>
       </div>
       <div class="redes col-3">
-        <a class="m-3" href="https://www.linkedin.com/in/luciano-vidal-6b50b295/" target="_blank"
-          ><img src="../../../assets/linkedin.png" id="linkedin"
-        /></a>
-        <a href="https://twitter.com/Vidal277" target="_blank"
-          ><img src="../../../assets/twitter.png" id="twitter"
-        /></a>
-        <a class="m-3" href="https://github.com/Lucho-Vidal" target="_blank"
-          ><img src="../../../assets/github.png" id="github"
-        /></a>
+        <a
+          class="m-3"
+          href="https://www.linkedin.com/in/luciano-vidal-6b50b295/"
+          target="_blank"><img src="../../../assets/linkedin.png" id="linkedin"/></a>
+        <a 
+          href="https://twitter.com/Vidal277" 
+          target="_blank"><img src="../../../assets/twitter.png" id="twitter"/></a>
+        <a  
+          class="m-3" 
+          href="https://github.com/Lucho-Vidal" 
+          target="_blank"><img src="../../../assets/github.png" id="github"/></a>
       </div>
     </div>
-    <div  *ngIf =" isLogged" > <h2> {{nombreUsuario}} </h2> </div>
-    <div class="inline col-2" id="navbarNav">
+    
+    <div class="inline col-2 text-center" id="navbarNav">
+      <ul>
+        <div *ngIf="isLogged">
+          <p>{{ nombreUsuario }}</p>
+        </div>
+      </ul>
       <ul class="row navbar-nav ml-auto">
         <li class="nav-item col-1">
           <a class="nav-link inline" routerLink="/">
@@ -28,8 +35,8 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link inline" *ngIf="!isLogged" routerLink="/login">
-            <i class="fas fa-sign-in-alt" style="padding: 5px"></i> Iniciar
-            Sesión</a
+            <i class="fas fa-sign-in-alt" style="padding: 5px"></i> 
+            Iniciar Sesión</a
           >
         </li>
       </ul>
@@ -41,12 +48,11 @@
             (click)="onlogOut()"
             routerLink="/"
           >
-            <i class="fas fa-door-open" style="padding: 5px"></i> Cerrar
-            Sesión</a
+            <i class="fas fa-door-open" style="padding: 5px"></i> 
+            Cerrar Sesión</a
           >
         </li>
       </ul>
     </div>
-    
   </div>
 </div>

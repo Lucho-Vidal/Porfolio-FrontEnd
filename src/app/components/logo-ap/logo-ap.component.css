@@ -1,6 +1,7 @@
 
 #logoAP{
     width: 150px;
+    padding-right: 0px;
 }
 img{
     width: 40px;  
@@ -9,7 +10,12 @@ img{
 div{
     background-color: #034d6c;
     color: #efefef;
+    
 }
+.row{
+    margin-right: 0;
+}
+
 
 .inline{
     display: flex;

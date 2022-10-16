@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-11"></div>
+  <div class="col-lg-1">
+    <button
+      type="button"
+      class="btn btn-success"
+      routerLink="/editAcercaDe/1"
+      *ngIf="isLogged"
+    >
+      Editar Persona
+    </button>
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+    <img src="{{ persona.img }}" class="img-fluid" id="fotoDePerfil" />
+  </div>
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+    <h3 id="nombre">{{ persona.nombre }} {{ persona.apellido }}</h3>
+    <p>{{persona.titulo}} </p>
+  </div>
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+    <span>
+      <h1>Acerca de mí</h1>
+      <p>{{ persona.descripcion }}</p>
+    </span>
+  </div>
+</div>

@@ -3,17 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { LogoApComponent } from './components/logo-ap/logo-ap.component';
 import { BannerComponent } from './components/banner/banner.component';
-import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
+import { AcercaDeComponent } from './components/acercaDe/acercaDe/acerca-de.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia/experiencia.component';
 import { EducacionComponent } from './components/educacion/educacion/educacion.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HardSoftSkillsComponent } from './components/hard-soft-skills/hard-soft-skills.component';
 import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login.component';
 import { FormsModule } from '@angular/forms';
@@ -27,10 +26,13 @@ import { NewEducacionComponent } from './components/educacion/new-educacion/new-
 import { HysComponent } from './components/hys/hys/hys.component';
 import { EditSkillComponent } from './components/hys/edit-skill/edit-skill.component';
 import { NewSkillComponent } from './components/hys/new-skill/new-skill.component';
+import { EditAcercaDeComponent } from './components/acercaDe/edit-acerca-de/edit-acerca-de.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     LogoApComponent,
     BannerComponent,
     AcercaDeComponent,
@@ -48,7 +50,8 @@ import { NewSkillComponent } from './components/hys/new-skill/new-skill.componen
     NewEducacionComponent,
     HysComponent,
     EditSkillComponent,
-    NewSkillComponent
+    NewSkillComponent,
+    EditAcercaDeComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,9 @@ import { NewSkillComponent } from './components/hys/new-skill/new-skill.componen
     NgCircleProgressModule.forRoot({}),
     ToastrModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [
     interceptProvider
