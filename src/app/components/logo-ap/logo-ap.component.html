@@ -1,56 +1,46 @@
-<div class="row">
-  <div class="container navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <div class="logo col-1">
-        <a href="/"><img src="../../../assets/APLogo.png" id="logoAP" /></a>
-      </div>
-      <div class="redes col-3">
-        <a
-          class="m-3"
-          href="https://www.linkedin.com/in/luciano-vidal-6b50b295/"
-          target="_blank"><img src="../../../assets/linkedin.png" id="linkedin"/></a>
-        <a 
-          href="https://twitter.com/Vidal277" 
-          target="_blank"><img src="../../../assets/twitter.png" id="twitter"/></a>
-        <a  
-          class="m-3" 
-          href="https://github.com/Lucho-Vidal" 
-          target="_blank"><img src="../../../assets/github.png" id="github"/></a>
-      </div>
+<div class="row navbar">
+  <div class="container-fluid navbar navbar-expand-lg nav-item">
+    <div class="logo mx-5">
+      <a href="/"><img src="../../../assets/APLogo.png" id="logoAP" /></a>
     </div>
     
-    <div class="inline col-2 text-center" id="navbarNav">
-      <ul>
-        <div *ngIf="isLogged">
-          <p>{{ nombreUsuario }}</p>
-        </div>
-      </ul>
-      <ul class="row navbar-nav ml-auto">
-        <li class="nav-item col-1">
-          <a class="nav-link inline" routerLink="/">
-            <i class="fas fa-home" style="padding: 5px"></i> Inicio</a
-          >
+    <div class="nav-item  d-flex mx-5 " id="navbarNav">
+      <ul class="nav">
+        <li class="nav-item mx-3 Nusuario">
+          <div class="aling-text-center" *ngIf="isLogged">
+            <h3>{{ nombreUsuario }}</h3>
+          </div>
         </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link inline" *ngIf="!isLogged" routerLink="/login">
-            <i class="fas fa-sign-in-alt" style="padding: 5px"></i> 
-            Iniciar Sesión</a
-          >
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item ">
           <a
-            class="nav-link inline"
-            *ngIf="isLogged"
-            (click)="onlogOut()"
-            routerLink="/"
+          href="https://www.linkedin.com/in/luciano-vidal-6b50b295/"
+          target="_blank"><img src="../../../assets/linkedin.png" id="linkedin"/></a>
+        </li>
+        <li class="nav-item mx-3">
+          <a 
+          href="https://twitter.com/Vidal277" 
+          target="_blank"><img src="../../../assets/twitter.png" id="twitter"/></a>
+        </li>
+        <li class="nav-item ">
+          <li class="nav-item">
+            <a
+          href="https://github.com/Lucho-Vidal" 
+          target="_blank"><img src="../../../assets/github.png" id="github"/></a>
+        </li>
+        
+        <li class="nav-item ">
+          <a class="nav-link " routerLink="/">
+            <i class="fas fa-home" ></i> Inicio</a
           >
-            <i class="fas fa-door-open" style="padding: 5px"></i> 
-            Cerrar Sesión</a
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " *ngIf="!isLogged" routerLink="/login">
+            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a
           >
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " *ngIf="isLogged" (click)="onlogOut()"routerLink="/">
+            <i class="fas fa-door-open" ></i> Cerrar Sesión</a>
         </li>
       </ul>
     </div>

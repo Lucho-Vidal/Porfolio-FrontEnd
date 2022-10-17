@@ -3,10 +3,12 @@
     width: 150px;
     padding-right: 0px;
 }
+
 img{
     width: 40px;  
     margin-right: 1px;
 }
+
 div{
     background-color: #034d6c;
     color: #efefef;
@@ -16,14 +18,14 @@ div{
     margin-right: 0;
 }
 
-
+/*
 .inline{
     display: flex;
     margin-right: 0;
     list-style: none;
     padding: 0;
 }
-/*--- Para la vista de celular ---*/
+/*--- Para la vista de celular ---
 @media (max-width:575px){
     .container{
         flex-direction: column;   
@@ -34,3 +36,4 @@ div{
         margin-right: 2px;
     }
 }
+*/
