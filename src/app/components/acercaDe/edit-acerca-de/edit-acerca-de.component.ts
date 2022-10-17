@@ -31,7 +31,9 @@ export class EditAcercaDeComponent implements OnInit {
   }
   onUpdate(): void{
     const id = this.activatedRouter.snapshot.params['id'];
-    this.persona.img = this.imageService.url
+    this.persona.img = this.imageService.images[1];
+    this.persona.imgBanner = this.imageService.images[0];
+    
     this.personaService.update(id, this.persona).subscribe(
       data => {
         this.router.navigate(['']);
@@ -44,6 +46,11 @@ export class EditAcercaDeComponent implements OnInit {
   uploadImage($event:any){
     const id = this.activatedRouter.snapshot.params['id'];
     const name = "perfil_" + id;
+    this.imageService.uploadImage($event,name)
+  }
+  uploadImageBanner($event:any){
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "banner_" + id;
     this.imageService.uploadImage($event,name)
   }
 
