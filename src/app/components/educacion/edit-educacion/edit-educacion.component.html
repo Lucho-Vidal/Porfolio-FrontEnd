@@ -20,14 +20,15 @@
               </div>
               <div class="form-group mt-3">
                 <label for="descripcionE">Descripcion de sus estudios</label>
-                <input
+                <textarea
                   type="text"
+                  rows="5"
                   class="form-control"
                   id="descripcionE"
                   name="descripcionE"
                   [(ngModel)]="educacion.descripcionE"
                   required
-                />
+                ></textarea>
               </div>
               <button class="btn btn-primary mt-3">Editar educacion</button>
             </form>
