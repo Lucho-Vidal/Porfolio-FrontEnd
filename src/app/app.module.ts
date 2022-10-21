@@ -17,7 +17,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegistroComponent } from './components/auth/registro.component';
-import { interceptProvider } from './service/interceptor-service';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia/new-experiencia.component';
 import { ToastrModule } from 'ngx-toastr';
 import { EditExperienciaComponent } from './components/experiencia/edit/edit-experiencia.component';
@@ -30,6 +29,8 @@ import { EditAcercaDeComponent } from './components/acercaDe/edit-acerca-de/edit
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { interceptorProvider } from './service/interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideStorage(() => getStorage())
   ],
   providers: [
-    interceptProvider
+    interceptorProvider
   ],
   bootstrap: [AppComponent]
 })

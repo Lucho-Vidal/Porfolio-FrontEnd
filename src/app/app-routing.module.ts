@@ -10,18 +10,20 @@ import { NewEducacionComponent } from './components/educacion/new-educacion/new-
 import { NewSkillComponent } from './components/hys/new-skill/new-skill.component';
 import { EditSkillComponent } from './components/hys/edit-skill/edit-skill.component';
 import { EditAcercaDeComponent } from './components/acercaDe/edit-acerca-de/edit-acerca-de.component';
+import { GuardService as guard } from './service/guard.service';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
   {path:'login',component: LoginComponent},
   {path:'registro',component: RegistroComponent},
-  {path:'nuevaExperiencia',component:NewExperienciaComponent},
-  {path:'editExperiencia/:id',component:EditExperienciaComponent},
-  {path:'nuevaEducacion',component:NewEducacionComponent},
-  {path:'editEducacion/:id',component:EditEducacionComponent},
-  {path:'nuevaSkill',component:NewSkillComponent},
-  {path:'editSkill/:id',component:EditSkillComponent},
-  {path:'editAcercaDe/:id',component:EditAcercaDeComponent}
+  {path:'nuevaExperiencia',component:NewExperienciaComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'editExperiencia/:id',component:EditExperienciaComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'nuevaEducacion',component:NewEducacionComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'editEducacion/:id',component:EditEducacionComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'nuevaSkill',component:NewSkillComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'editSkill/:id',component:EditSkillComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'editAcercaDe/:id',component:EditAcercaDeComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'**', redirectTo: '',pathMatch:'full'}
 ];
 
 @NgModule({
