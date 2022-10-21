@@ -11,16 +11,13 @@
           </td>
           <td>{{ Educacion.descripcionE }}</td>
           <td *ngIf="isLogged">
-            <button
-              class="btn btn-light"
-              routerLink="/editEducacion/{{ Educacion.id }}"
-            >
-              <i class="bi bi-pencil-fill"></i> 
+            <button class="btn btn-light" routerLink="/editEducacion/{{ Educacion.id }}">
+              <i class="bi bi-pencil-fill"></i>
             </button>
           </td>
           <td *ngIf="isLogged">
             <button class="btn btn-danger" (click)="delete(Educacion.id)">
-              <i class="bi bi-trash-fill"></i> 
+              <i class="bi bi-trash-fill"></i>
             </button>
           </td>
         </tr>
@@ -29,13 +26,8 @@
   </div>
   <div class="col-lg-10"></div>
   <div class="col-lg-2">
-    <button
-      type="button"
-      class="btn btn-success"
-      routerLink="/nuevaEducacion"
-      *ngIf="isLogged"
-    >
-    <i class="fas fa-pencil-alt"></i>
+    <button type="button" class="btn btn-success" routerLink="/nuevaEducacion" *ngIf="isLogged">
+      <i class="fas fa-pencil-alt"></i>
       Agregar Educacion
     </button>
   </div>

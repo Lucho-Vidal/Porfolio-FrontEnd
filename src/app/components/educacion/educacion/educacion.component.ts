@@ -15,12 +15,12 @@ export class EducacionComponent implements OnInit {
   isLogged = false;
 
   ngOnInit(): void {
-    this.cargarEducacion();
+    this.cargarEducacion();/*
     if(this.tokenService.getToken()){
       this.isLogged = true;
     } else {
       this.isLogged = false;
-    }
+    }*/
   }
   cargarEducacion(): void{
     this.educacionS.lista().subscribe(

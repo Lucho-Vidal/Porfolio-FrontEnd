@@ -10,7 +10,7 @@
             <h2>{{ expe.nombreE }}</h2>
           </td>
           <td>{{ expe.descripcionE }}</td>
-          <td *ngIf="isLogged">
+          <td *ngIf="isAdmin">
             <button
               class="btn btn-light"
               routerLink="/editExperiencia/{{ expe.id }}"
@@ -18,7 +18,7 @@
               <i class="bi bi-pencil-fill"></i>
             </button>
           </td>
-          <td *ngIf="isLogged">
+          <td *ngIf="isAdmin">
             <button class="btn btn-danger" (click)="delete(expe.id)">
               <i class="bi bi-trash-fill"></i>
             </button>
@@ -33,7 +33,7 @@
       type="button"
       class="btn btn-success"
       routerLink="/nuevaExperiencia"
-      *ngIf="isLogged"
+      *ngIf="isAdmin"
     >
     <i class="fas fa-pencil-alt"></i>
       Nueva Experiencia
