@@ -14,7 +14,7 @@ export class GuardService implements CanActivate{
     private router: Router
   ) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const expectedRol = route.data['admin'];
+    const expectedRol = route.data['expectedRol'];
     this.realRol = this.tokenService.isAdmin() ? 'admin' : 'user';
     if (!this.tokenService.isLogged() || expectedRol.indexOf(this.realRol) < 0){
       this.router.navigate(['/']);

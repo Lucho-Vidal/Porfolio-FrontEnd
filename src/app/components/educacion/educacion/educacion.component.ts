@@ -2,61 +2,60 @@ import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/models/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
 import { TokenService } from 'src/app/service/token.service';
-import  Swal  from 'sweetalert2';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css']
+  styleUrls: ['./educacion.component.css'],
 })
 export class EducacionComponent implements OnInit {
   educacion: Educacion[] = [];
-  constructor(private educacionS: EducacionService, private tokenService: TokenService) { }
+  isAdmin = false;
+  constructor(
+    private educacionS: EducacionService,
+    private tokenService: TokenService
+  ) {}
 
   isLogged = false;
 
   ngOnInit(): void {
-    this.cargarEducacion();/*
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }*/
+    this.cargarEducacion();
+    this.isAdmin = this.tokenService.isAdmin();
   }
-  cargarEducacion(): void{
-    this.educacionS.lista().subscribe(
-      data =>{
-        this.educacion = data;
-      }
-    )
+  cargarEducacion(): void {
+    this.educacionS.lista().subscribe((data) => {
+      this.educacion = data;
+    });
   }
 
-  delete(id?: number){
-    if(id != undefined){
+  delete(id?: number) {
+    if (id != undefined) {
       Swal.fire({
         title: 'Estas seguro de eliminarlo?',
-        text: "Este cambio no se puede revertir!",
+        text: 'Este cambio no se puede revertir!',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire({
-            title:'La educacion se elimino correctamente',
-            icon:'success',
+            title: 'La educacion se elimino correctamente',
+            icon: 'success',
             showConfirmButton: false,
-            timer: 1500
-        })
+            timer: 1500,
+          });
           this.educacionS.delete(id).subscribe(
-            data => {
+            (data) => {
               this.cargarEducacion();
-            }, err => {
-              alert("No se pudo eliminar");
+            },
+            (err) => {
+              alert('No se pudo eliminar');
             }
-          )
+          );
         }
-      }) 
+      });
     }
   }
 }

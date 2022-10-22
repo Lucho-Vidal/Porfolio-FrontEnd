@@ -9,7 +9,15 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  persona: Persona = null;
+  persona: Persona={
+    nombre: '',
+    apellido: '',
+    descripcion: '',
+    img: '',
+    imgBanner:'',
+    titulo:'',
+    locacion:''
+  };
   isLogged = false;
   constructor(
     public personaService: PersonaService,

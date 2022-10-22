@@ -2,10 +2,10 @@
   <div class="col-lg-10"></div>
   <div class="col-lg-2">
     <button
+      *ngIf="isAdmin"
       type="button"
       class="btn btn-success"
       routerLink="/editAcercaDe/1"
-      *ngIf="isLogged"
     >
       <i class="fas fa-pencil-alt"></i>
       Editar Persona

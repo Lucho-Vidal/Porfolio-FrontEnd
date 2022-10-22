@@ -9,8 +9,16 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./acerca-de.component.css'],
 })
 export class AcercaDeComponent implements OnInit {
-  persona: Persona = null;
-  isLogged = false;
+  persona: Persona={
+    nombre: '',
+    apellido: '',
+    descripcion: '',
+    img: '',
+    imgBanner:'',
+    titulo:'',
+    locacion:''
+  };
+  isAdmin = false;
   constructor(
     public personaService: PersonaService,
     private tokenService: TokenService
@@ -18,11 +26,7 @@ export class AcercaDeComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarPersona();
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+    this.isAdmin = this.tokenService.isAdmin();
   }
   cargarPersona() {
     this.personaService.detail(1).subscribe((data) => {
