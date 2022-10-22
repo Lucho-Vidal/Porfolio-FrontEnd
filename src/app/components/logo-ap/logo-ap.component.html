@@ -3,7 +3,7 @@
     <div class="logo mx-5">
       <a href="/"><img src="../../../assets/APLogo.png" id="logoAP" /></a>
     </div>
-    
+
     <div class="nav-item  d-flex mx-5 " id="navbarNav">
       <ul class="nav">
         <li class="nav-item mx-3 Nusuario">
@@ -12,35 +12,33 @@
           </div>
         </li>
         <li class="nav-item ">
-          <a
-          href="https://www.linkedin.com/in/luciano-vidal-6b50b295/"
-          target="_blank"><img src="../../../assets/linkedin.png" id="linkedin"/></a>
+          <a href="https://www.linkedin.com/in/luciano-vidal-6b50b295/" target="_blank"><img
+              src="../../../assets/linkedin.png" id="linkedin" /></a>
         </li>
         <li class="nav-item mx-3">
-          <a 
-          href="https://twitter.com/Vidal277" 
-          target="_blank"><img src="../../../assets/twitter.png" id="twitter"/></a>
+          <a href="https://twitter.com/Vidal277" target="_blank"><img src="../../../assets/twitter.png"
+              id="twitter" /></a>
         </li>
         <li class="nav-item ">
-          <li class="nav-item">
-            <a
-          href="https://github.com/Lucho-Vidal" 
-          target="_blank"><img src="../../../assets/github.png" id="github"/></a>
+        <li class="nav-item">
+          <a href="https://github.com/Lucho-Vidal" target="_blank"><img src="../../../assets/github.png"
+              id="github" /></a>
         </li>
-        
-        <li class="nav-item ">
-          <a class="nav-link " routerLink="/">
-            <i class="fas fa-home" ></i> Inicio</a
-          >
+
+        <li class="nav-item mx-1 ">
+          <button class="btn btn-outline-info " routerLink="/">
+            <i class="fas fa-home"></i> Inicio
+          </button>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link " *ngIf="!isLogged" routerLink="/login">
-            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a
-          >
+        <li class="nav-item mx-1 ">
+          <button *ngIf="!isLogged" class="btn btn-outline-success  " routerLink="/login">
+            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+          </button>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link " *ngIf="isLogged" (click)="onlogOut()"routerLink="/">
-            <i class="fas fa-door-open" ></i> Cerrar Sesión</a>
+        <li class="nav-item mx-1 ">
+          <button *ngIf="isLogged" class="btn btn-outline-danger  " (click)="onlogOut()">
+            <i class="fas fa-door-open"></i> Cerrar Sesión
+          </button>
         </li>
       </ul>
     </div>

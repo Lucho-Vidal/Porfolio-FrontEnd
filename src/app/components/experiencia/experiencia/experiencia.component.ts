@@ -12,10 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ExperienciaComponent implements OnInit {
   experiencia: Experiencia[] = [];
-  roles: string[];
   isAdmin = false;
-  isLogged = false;
-
   constructor(
     private sExperiencia: SExperienciaService,
     private tokenService: TokenService
@@ -25,18 +22,7 @@ export class ExperienciaComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarExperiencia();
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN'){
-        this.isAdmin = true;
-      }
-    })
-    
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+    this.isAdmin = this.tokenService.isAdmin();
     
   }
 

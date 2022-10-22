@@ -10,19 +10,20 @@ import { NewEducacionComponent } from './components/educacion/new-educacion/new-
 import { NewSkillComponent } from './components/hys/new-skill/new-skill.component';
 import { EditSkillComponent } from './components/hys/edit-skill/edit-skill.component';
 import { EditAcercaDeComponent } from './components/acercaDe/edit-acerca-de/edit-acerca-de.component';
-import { GuardService as guard } from './service/guard.service';
+import { GuardService  } from './service/guard.service';
+import { LoginGuard } from './service/login.guard';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
-  {path:'login',component: LoginComponent},
-  {path:'registro',component: RegistroComponent},
-  {path:'nuevaExperiencia',component:NewExperienciaComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
-  {path:'editExperiencia/:id',component:EditExperienciaComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
-  {path:'nuevaEducacion',component:NewEducacionComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
-  {path:'editEducacion/:id',component:EditEducacionComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
-  {path:'nuevaSkill',component:NewSkillComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
-  {path:'editSkill/:id',component:EditSkillComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
-  {path:'editAcercaDe/:id',component:EditAcercaDeComponent, canActivate: [guard], data: {expectedRol: ['admin']}},
+  {path:'login',component: LoginComponent, canActivate: [LoginGuard]},
+  {path:'registro',component: RegistroComponent, canActivate: [LoginGuard]},
+  {path:'nuevaExperiencia',component:NewExperienciaComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
+  {path:'editExperiencia/:id',component:EditExperienciaComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
+  {path:'nuevaEducacion',component:NewEducacionComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
+  {path:'editEducacion/:id',component:EditEducacionComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
+  {path:'nuevaSkill',component:NewSkillComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
+  {path:'editSkill/:id',component:EditSkillComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
+  {path:'editAcercaDe/:id',component:EditAcercaDeComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
   {path:'**', redirectTo: '',pathMatch:'full'}
 ];
 
