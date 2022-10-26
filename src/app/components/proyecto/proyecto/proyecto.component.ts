@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { Experiencia } from 'src/app/models/experiencia';
-import { SExperienciaService } from 'src/app/service/s-experiencia.service';
+import { Proyecto } from 'src/app/models/proyecto';
+import { ProyectoService } from 'src/app/service/proyecto.service';
 import { TokenService } from 'src/app/service/token.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-experiencia',
-  templateUrl: './experiencia.component.html',
-  styleUrls: ['./experiencia.component.css'],
+  selector: 'app-proyecto',
+  templateUrl: './proyecto.component.html',
+  styleUrls: ['./proyecto.component.css'],
 })
-export class ExperienciaComponent implements OnInit {
-  experiencia: Experiencia[] = [];
+export class ProyectoComponent implements OnInit {
+  proyecto: Proyecto[];
   isAdmin = false;
+  long:number=0;
   constructor(
-    private sExperiencia: SExperienciaService,
+    private sProyecto: ProyectoService,
     private tokenService: TokenService
   ) {}
 
   ngOnInit(): void {
-    this.cargarExperiencia();
+    this.cargarProyectos();
     this.isAdmin = this.tokenService.isAdmin();
   }
 
-  cargarExperiencia(): void {
-    this.sExperiencia.lista().subscribe((data) => {
-      this.experiencia = data;
+  cargarProyectos(): void {
+    this.sProyecto.lista().subscribe((data) => {
+      this.proyecto = data;
+      
     });
   }
   delete(id?: number) {
@@ -40,24 +42,22 @@ export class ExperienciaComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire({
-            title: 'La experiencia se elimino correctamente',
+            title: 'El proyecto se elimino correctamente',
             icon: 'success',
             showConfirmButton: false,
             timer: 1500,
           });
-          this.sExperiencia.delete(id).subscribe(
-            (data) => {
-              this.cargarExperiencia();
-            },
-            (err) => {
+          this.sProyecto.delete(id).subscribe((data) => {
+            this.cargarProyectos();
+          }),
+            (err: any) => {
               Swal.fire({
-                title: 'No se pudo borrar la experiencia',
+                title: 'No se pudo borrar el proyecto',
                 icon: 'error',
                 showConfirmButton: false,
                 timer: 1500,
               });
-            }
-          );
+            };
         }
       });
     }

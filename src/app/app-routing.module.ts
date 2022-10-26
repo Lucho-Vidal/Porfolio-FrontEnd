@@ -12,6 +12,8 @@ import { EditSkillComponent } from './components/hys/edit-skill/edit-skill.compo
 import { EditAcercaDeComponent } from './components/acercaDe/edit-acerca-de/edit-acerca-de.component';
 import { GuardService  } from './service/guard.service';
 import { LoginGuard } from './service/login.guard';
+import { EditProyectoComponent } from './components/proyecto/edit-proyecto/edit-proyecto.component';
+import { NewProyectoComponent } from './components/proyecto/new-proyecto/new-proyecto.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path:'nuevaSkill',component:NewSkillComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
   {path:'editSkill/:id',component:EditSkillComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
   {path:'editAcercaDe/:id',component:EditAcercaDeComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
+  {path:'editProyecto/:id',component:EditProyectoComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
+  {path:'nuevoProyecto',component:NewProyectoComponent, canActivate: [GuardService], data: {expectedRol: ['admin']}},
   {path:'**', redirectTo: '',pathMatch:'full'}
 ];
 

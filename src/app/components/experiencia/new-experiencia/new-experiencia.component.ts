@@ -29,7 +29,13 @@ export class NewExperienciaComponent implements OnInit {
         })
         this.router.navigate(['']);
       }, err =>{
-        alert("Fallo");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'La experiencia No se pudo guardar',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['']);
       }
     )

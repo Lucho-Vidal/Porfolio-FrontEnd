@@ -1,0 +1,36 @@
+<div class="row">
+  <h1>Proyectos Realizados</h1>
+
+  <div class="col-lg-1"></div>
+  <div class="col-lg-11">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let p of proyecto">
+          <td>
+            <h2>{{ p.nombre }}</h2>
+          </td>
+          <td>{{ p.descripcion }}</td>
+          <td><img src={{p.img}} width="200px"></td>
+          <td><a target="_blank" class="btn btn-secondary" href={{p.link}}>Ver</a></td>
+          <td *ngIf="isAdmin">
+            <button class="btn btn-light" routerLink="/editProyecto/{{ p.id }}">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+          </td>
+          <td *ngIf="isAdmin">
+            <button class="btn btn-danger" (click)="delete(p.id)">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-10"></div>
+  <div class="col-lg-2">
+    <button type="button" class="btn btn-success my-4" routerLink="/nuevoProyecto" *ngIf="isAdmin">
+      <i class="fas fa-pencil-alt"></i>
+      Nuevo Proyecto
+    </button>
+  </div>
+</div>

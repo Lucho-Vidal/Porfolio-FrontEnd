@@ -54,13 +54,22 @@ export class EditAcercaDeComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     const name = "perfil_" + id;
     this.imageService.uploadImage($event,name)
-    this.persona.img = this.imageService.images[1];
+    this.persona.img =  this.searchImage(this.imageService.images,name);
   }
   uploadImageBanner($event:any){
     const id = this.activatedRouter.snapshot.params['id'];
     const name = "banner_" + id;
     this.imageService.uploadImage($event,name)
-    this.persona.imgBanner = this.imageService.images[0];
+    this.persona.imgBanner = this.searchImage(this.imageService.images,name);
   }
-
+  
+  searchImage(listImg:string[],nombreBuscado:string):string{
+    let url:string='';
+    for (let img of listImg){
+      if(img.includes(nombreBuscado)){
+        url = img;
+      }
+    }
+    return url;
+  }
 }
