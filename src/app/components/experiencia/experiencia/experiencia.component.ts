@@ -30,11 +30,12 @@ export class ExperienciaComponent implements OnInit {
       for (let e of this.experiencia) {
         if (e.fechaFin != null) {
           e.anios = parseInt(e.fechaFin) - parseInt(e.fechaInicio);
+          e.fechaFin = this.fechaFormat(e.fechaFin);
         } else {
           e.anios = this.today - parseInt(e.fechaInicio);
         }
         e.fechaInicio = this.fechaFormat(e.fechaInicio);
-        e.fechaFin = this.fechaFormat(e.fechaFin);
+        
       }
     });
   }
