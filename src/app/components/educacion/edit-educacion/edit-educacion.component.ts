@@ -11,8 +11,9 @@ import  Swal  from 'sweetalert2';
 })
 export class EditEducacionComponent implements OnInit {
   educacion: Educacion = null;
-  long: number;
-  name: string;
+  id = this.activatedRouter.snapshot.params['id'];
+  name: string = 'Educacion_' + this.id;
+  
   constructor(
     private educacionS: EducacionService,
     private activatedRouter : ActivatedRoute,
@@ -34,8 +35,7 @@ export class EditEducacionComponent implements OnInit {
 
   onUpdate(): void{
     this.educacion.img =  this.searchImage(this.imageService.images,this.name);
-    const id = this.activatedRouter.snapshot.params['id'];
-    this.educacionS.update(id, this.educacion).subscribe(
+    this.educacionS.update(this.id, this.educacion).subscribe(
       data => {
         Swal.fire({
           title:'La educacion se edito correctamente',
@@ -51,8 +51,6 @@ export class EditEducacionComponent implements OnInit {
     )
   }
   uploadImage($event: any) {
-    const id = this.long + 1;
-    this.name = 'Educacion_' + id;
     this.imageService.uploadImage($event, this.name);
   }
 

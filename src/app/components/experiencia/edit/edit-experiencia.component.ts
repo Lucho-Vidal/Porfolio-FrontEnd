@@ -11,8 +11,8 @@ import  Swal  from 'sweetalert2';
 })
 export class EditExperienciaComponent implements OnInit {
   experiencia: Experiencia = null;
-  long: number;
-  name: string;
+  id = this.activatedRouter.snapshot.params['id'];
+  name: string = 'Experiencia_' + this.id;
   constructor(
     private sExperiencia: SExperienciaService,
     private activatedRouter: ActivatedRoute, 
@@ -21,8 +21,7 @@ export class EditExperienciaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.activatedRouter.snapshot.params['id'];
-    this.sExperiencia.detail(id).subscribe(
+    this.sExperiencia.detail(this.id).subscribe(
       data =>{
         this.experiencia = data;
       }, err =>{
@@ -34,8 +33,7 @@ export class EditExperienciaComponent implements OnInit {
 
   onUpdate(): void {
     this.experiencia.img =  this.searchImage(this.imageService.images,this.name);
-    const id = this.activatedRouter.snapshot.params['id'];
-    this.sExperiencia.update(id, this.experiencia).subscribe(
+    this.sExperiencia.update(this.id, this.experiencia).subscribe(
       data => {
         Swal.fire({
           title:'La experiencia se edito correctamente',
@@ -51,8 +49,6 @@ export class EditExperienciaComponent implements OnInit {
     )
   }
   uploadImage($event: any) {
-    const id = this.long + 1;
-    this.name = 'Experiencia_' + id;
     this.imageService.uploadImage($event, this.name);
   }
 
