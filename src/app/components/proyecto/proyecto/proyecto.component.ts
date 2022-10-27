@@ -26,7 +26,12 @@ export class ProyectoComponent implements OnInit {
   cargarProyectos(): void {
     this.sProyecto.lista().subscribe((data) => {
       this.proyecto = data;
-      
+      for(let e of this.proyecto){
+        const anio = e.fecha.slice(0,4);
+        const mes = e.fecha.slice(5,7);
+        const dia = e.fecha.slice(8,10); 
+        e.fecha = dia+'/'+mes+'/'+anio;
+      }
     });
   }
   delete(id?: number) {

@@ -11,10 +11,47 @@
             class="form-control"
             id="nombreE"
             name="nombreE"
-            [(ngModel)]="nombreE"
+            [(ngModel)]="educacion.nombreE"
             required
           />
         </div>
+        <div class="row align-items">
+          <div class="form-group col-lg-6">
+            <label for="fechaInicio">Fecha Inicio:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fechaInicio"
+              name="fechaInicio"
+              [(ngModel)]="educacion.fechaInicio"
+              
+            />
+          </div>
+          <div class="form-group col-lg-6">
+            <label for="fechaFin">Fecha Fin:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fechaFin"
+              name="fechaFin"
+              [(ngModel)]="educacion.fechaFin"
+              
+            />
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="img">Logo:</label>
+          <input
+            type="file"
+            class="form-control"
+            id="img"
+            name="img"
+            [(ngModel)]="educacion.img"
+            (change)="uploadImage($event)"
+            accept=".jpg,.jpeg,.png"
+            required
+          />
+      </div>
         <div class="form-group" >
           <label for="descripcionE">Descripcion de sus estudios:</label>
           <textarea
@@ -22,7 +59,7 @@
             class="form-control"
             id="descripcionE"
             name="descripcionE"
-            [(ngModel)]="descripcionE"
+            [(ngModel)]="educacion.descripcionE"
             required
           ></textarea>
         </div>

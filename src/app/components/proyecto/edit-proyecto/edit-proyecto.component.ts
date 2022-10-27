@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 })
 export class EditProyectoComponent implements OnInit {
 
-  proyecto = new Proyecto('',new Date(),'','','');
+  proyecto = new Proyecto('','','','','');
   proyectos: Proyecto[];
   long:number;
   id:number = this.activatedRouter.snapshot.params['id'];

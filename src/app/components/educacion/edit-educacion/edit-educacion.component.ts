@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Educacion } from 'src/app/models/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
+import { ImageService } from 'src/app/service/image.service';
 import  Swal  from 'sweetalert2';
 @Component({
   selector: 'app-edit-educacion',
@@ -10,10 +11,13 @@ import  Swal  from 'sweetalert2';
 })
 export class EditEducacionComponent implements OnInit {
   educacion: Educacion = null;
+  long: number;
+  name: string;
   constructor(
     private educacionS: EducacionService,
     private activatedRouter : ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public imageService: ImageService
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +33,7 @@ export class EditEducacionComponent implements OnInit {
   }
 
   onUpdate(): void{
+    this.educacion.img =  this.searchImage(this.imageService.images,this.name);
     const id = this.activatedRouter.snapshot.params['id'];
     this.educacionS.update(id, this.educacion).subscribe(
       data => {
@@ -45,5 +50,19 @@ export class EditEducacionComponent implements OnInit {
       }
     )
   }
+  uploadImage($event: any) {
+    const id = this.long + 1;
+    this.name = 'Educacion_' + id;
+    this.imageService.uploadImage($event, this.name);
+  }
 
+  searchImage(listImg: string[], nombreBuscado: string): string {
+    let url: string = '';
+    for (let img of listImg) {
+      if (img.includes(nombreBuscado)) {
+        url = img;
+      }
+    }
+    return url;
+  }
 }

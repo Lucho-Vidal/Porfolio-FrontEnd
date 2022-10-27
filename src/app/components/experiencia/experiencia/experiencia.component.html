@@ -1,25 +1,31 @@
 <div *ngIf="experiencia" class="row">
-  <h1>Experiencia laboral</h1>
+  <h2>Experiencia laboral</h2>
 
   <div class="col-lg-1"></div>
   <div class="col-lg-11">
     <table class="table">
       <tbody>
-        <tr *ngFor="let expe of experiencia">
-          <td>
-            <h2>{{ expe.nombreE }}</h2>
+        <tr *ngFor="let e of experiencia">
+          <td class="col-lg-1 "><img src={{e.img}} width="80px"></td>
+          <td class="col-lg-2">
+            <h4>{{ e.nombreE }}</h4>
           </td>
-          <td>{{ expe.descripcionE }}</td>
-          <td *ngIf="isAdmin">
-            <button
-              class="btn btn-light"
-              routerLink="/editExperiencia/{{ expe.id }}"
-            >
+          <td class="col-lg-1">
+            <h6 *ngIf="e.fechaInicio">Desde: {{ e.fechaInicio }} </h6>
+            <h6 *ngIf="e.fechaFin"> hasta: {{e.fechaFin}} </h6>
+            <h6 *ngIf="!e.fechaFin"> hasta: la actualidad </h6>
+            <h6 *ngIf="e.anios">({{ e.anios }} año/s)</h6>
+          </td>
+          <td class="col-lg-8">
+            <p>{{ e.descripcionE }}</p>
+          </td>
+          <td *ngIf="isAdmin" class="col-lg-1">
+            <button class="btn btn-light" routerLink="/editExperiencia/{{ e.id }}">
               <i class="bi bi-pencil-fill"></i>
             </button>
           </td>
-          <td *ngIf="isAdmin">
-            <button class="btn btn-danger" (click)="delete(expe.id)">
+          <td *ngIf="isAdmin" class="col-lg-6">
+            <button class="btn btn-danger" (click)="delete(e.id)">
               <i class="bi bi-trash-fill"></i>
             </button>
           </td>
@@ -29,13 +35,8 @@
   </div>
   <div class="col-lg-10"></div>
   <div class="col-lg-2">
-    <button
-      type="button"
-      class="btn btn-success"
-      routerLink="/nuevaExperiencia"
-      *ngIf="isAdmin"
-    >
-    <i class="fas fa-pencil-alt"></i>
+    <button type="button" class="btn btn-success" routerLink="/nuevaExperiencia" *ngIf="isAdmin">
+      <i class="fas fa-pencil-alt"></i>
       Nueva Experiencia
     </button>
   </div>

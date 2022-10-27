@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 export class ExperienciaComponent implements OnInit {
   experiencia: Experiencia[] = [];
   isAdmin = false;
+  today: number = new Date().getFullYear();
+
   constructor(
     private sExperiencia: SExperienciaService,
     private tokenService: TokenService
@@ -25,8 +27,18 @@ export class ExperienciaComponent implements OnInit {
   cargarExperiencia(): void {
     this.sExperiencia.lista().subscribe((data) => {
       this.experiencia = data;
+      for (let e of this.experiencia) {
+        if (e.fechaFin != null) {
+          e.anios = parseInt(e.fechaFin) - parseInt(e.fechaInicio);
+        } else {
+          e.anios = this.today - parseInt(e.fechaInicio);
+        }
+        e.fechaInicio = this.fechaFormat(e.fechaInicio);
+        e.fechaFin = this.fechaFormat(e.fechaFin);
+      }
     });
   }
+
   delete(id?: number) {
     if (id != undefined && this.isAdmin) {
       Swal.fire({
@@ -61,5 +73,11 @@ export class ExperienciaComponent implements OnInit {
         }
       });
     }
+  }
+  fechaFormat(fecha: string): string {
+    const anio = fecha.slice(0, 4);
+    const mes = fecha.slice(5, 7);
+    const dia = fecha.slice(8, 10);
+    return dia + '/' + mes + '/' + anio;
   }
 }

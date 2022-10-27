@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class EducacionComponent implements OnInit {
   educacion: Educacion[] = [];
   isAdmin = false;
+  today: number = new Date().getFullYear();
   constructor(
     private educacionS: EducacionService,
     private tokenService: TokenService
@@ -25,6 +26,15 @@ export class EducacionComponent implements OnInit {
   cargarEducacion(): void {
     this.educacionS.lista().subscribe((data) => {
       this.educacion = data;
+      for(let e of this.educacion){
+        if (e.fechaFin != null) {
+          e.anios = parseInt(e.fechaFin) - parseInt(e.fechaInicio);
+        } else {
+          e.anios = this.today - parseInt(e.fechaInicio);
+        }
+        e.fechaInicio = this.fechaFormat(e.fechaInicio);
+        e.fechaFin = this.fechaFormat(e.fechaFin);
+      }
     });
   }
 
@@ -57,5 +67,11 @@ export class EducacionComponent implements OnInit {
         }
       });
     }
+  }
+  fechaFormat(fecha: string): string {
+    const anio = fecha.slice(0, 4);
+    const mes = fecha.slice(5, 7);
+    const dia = fecha.slice(8, 10);
+    return dia + '/' + mes + '/' + anio;
   }
 }

@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 })
 export class NewProyectoComponent implements OnInit {
   
-  proyecto = new Proyecto('',new Date(),'','','');
+  proyecto = new Proyecto('','','','','');
   proyectos: Proyecto[];
   long:number;
   name:string;

@@ -1,14 +1,14 @@
 export class Proyecto {
   id: number;
   nombre: string;
-  fecha: Date;
+  fecha: string;
   descripcion: string;
   link: string;
   img: string;
 
   constructor(
     nombre: string,
-    fecha: Date,
+    fecha: string,
     descripcion: string,
     link: string,
     img: string

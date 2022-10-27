@@ -3,7 +3,7 @@
   <div class="row">
     <h1>Editar experiencia:</h1>
     <div class="mt-5">
-      <div class="container" *ngIf="expLab">
+      <div class="container" *ngIf="experiencia">
         <div class="row">
           <div>
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
@@ -14,10 +14,47 @@
                   class="form-control"
                   id="nombreE"
                   name="nombreE"
-                  [(ngModel)]="expLab.nombreE"
+                  [(ngModel)]="experiencia.nombreE"
                   required
                 />
               </div>
+              <div class="row align-items">
+                <div class="form-group col-lg-6">
+                  <label for="fechaInicio">Fecha Inicio:</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="fechaInicio"
+                    name="fechaInicio"
+                    [(ngModel)]="experiencia.fechaInicio"
+                    
+                  />
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="fechaFin">Fecha Fin:</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="fechaFin"
+                    name="fechaFin"
+                    [(ngModel)]="experiencia.fechaFin"
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="img">Logo:</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="img"
+                  name="img"
+                  [(ngModel)]="experiencia.img"
+                  (change)="uploadImage($event)"
+                  accept=".jpg,.jpeg,.png"
+                  required
+                />
+            </div>
               <div class="form-group mt-3">
                 <label for="descripcionE">Descripcion de la tarea</label>
                 <textarea
@@ -25,7 +62,7 @@
                   class="form-control"
                   id="descripcionE"
                   name="descripcionE"
-                  [(ngModel)]="expLab.descripcionE"
+                  [(ngModel)]="experiencia.descripcionE"
                   required
                 ></textarea>
               </div>

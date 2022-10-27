@@ -1,17 +1,23 @@
 <div class="row">
-  <h1>Proyectos Realizados</h1>
+  <h2>Proyectos Realizados:</h2>
 
   <div class="col-lg-1"></div>
   <div class="col-lg-11">
-    <table class="table">
+    <table class="table ">
       <tbody>
         <tr *ngFor="let p of proyecto">
-          <td>
-            <h2>{{ p.nombre }}</h2>
+          <td class="col-lg-3">
+            <h4>{{ p.nombre }}</h4>
           </td>
-          <td>{{ p.descripcion }}</td>
-          <td><img src={{p.img}} width="200px"></td>
-          <td><a target="_blank" class="btn btn-secondary" href={{p.link}}>Ver</a></td>
+          <td class="col-lg-1">
+            <p>{{p.fecha}}</p>
+          </td>
+          <td class="col-lg-6">
+            <p>{{ p.descripcion }}</p>
+          </td>
+          <td class="col-lg-3 horizotal-align: right"><img rounded-lg src={{p.img}} width="200px"></td>
+
+          <td><a target="_blank" *ngIf="p.link" class="btn btn-secondary" href={{p.link}}>Ver</a></td>
           <td *ngIf="isAdmin">
             <button class="btn btn-light" routerLink="/editProyecto/{{ p.id }}">
               <i class="bi bi-pencil-fill"></i>
@@ -22,6 +28,7 @@
               <i class="bi bi-trash-fill"></i>
             </button>
           </td>
+
         </tr>
       </tbody>
     </table>
