@@ -9,5 +9,6 @@ export const environment = {
     messagingSenderId: '1068735805107',
     measurementId: 'G-XQCB7W5E8W',
   },
-  production: true
+  production: true,
+  URL: 'https://luciano-vidal-portfolio.herokuapp.com/'
 };

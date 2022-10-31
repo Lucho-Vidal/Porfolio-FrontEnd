@@ -11,6 +11,7 @@ import { ImageService } from 'src/app/service/image.service';
 })
 export class NewEducacionComponent implements OnInit {
   educacion = new Educacion('', '', '', '', '', '', 0);
+  educaciones: Educacion[];
   long: number;
   name: string;
   constructor(
@@ -19,7 +20,16 @@ export class NewEducacionComponent implements OnInit {
     public imageService: ImageService
     ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.educacionS.lista().subscribe((data) => {
+      this.educaciones = data;
+      if(this.educaciones.length == 0){
+        this.long = 1;
+      }else{
+        this.long = this.educaciones[this.educaciones.length - 1].id;
+      }
+    });
+  }
   onCreate(): void {
     this.educacion.img =  this.searchImage(this.imageService.images,this.name);
     this.educacionS.save(this.educacion).subscribe(

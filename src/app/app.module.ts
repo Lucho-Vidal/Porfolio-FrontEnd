@@ -9,7 +9,6 @@ import { AcercaDeComponent } from './components/acercaDe/acercaDe/acerca-de.comp
 import { ExperienciaComponent } from './components/experiencia/experiencia/experiencia.component';
 import { EducacionComponent } from './components/educacion/educacion/educacion.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { HardSoftSkillsComponent } from './components/hard-soft-skills/hard-soft-skills.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
@@ -41,7 +40,6 @@ import { NewProyectoComponent } from './components/proyecto/new-proyecto/new-pro
     AcercaDeComponent,
     ExperienciaComponent,
     EducacionComponent,
-    HardSoftSkillsComponent,
     ProyectoComponent,
     FooterComponent,
     HomeComponent,

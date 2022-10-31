@@ -10,5 +10,6 @@
     box-shadow: 10px 10px 30px #000;
 }
 .row{
+    padding: 20px;
     margin-right: 0;
 }

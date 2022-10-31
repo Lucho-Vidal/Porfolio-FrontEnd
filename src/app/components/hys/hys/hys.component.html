@@ -12,44 +12,42 @@
       Nueva Skill
     </button>
   </div>
-  <div *ngIf="skill">
-  <div
-    class="text-center col-sm-4 col-md-4 col-lg-4 circulo"
-    *ngFor="let skil of skill"
-  >
-    <circle-progress
-      [percent]="skil.porcentaje"
-      [radius]="90"
-      [imageSrc]="''"
-      [title]="skil.nombre"
-      [titleColor]="'#212F3C'"
-      [showTitle]="true"
-      [showImage]="false"
-      [imageHeight]="70"
-      [imageWidth]="70"
-      [showUnits]="false"
-      [showSubtitle]="false"
-      [outerStrokeWidth]="16"
-      [innerStrokeWidth]="2"
-      [outerStrokeColor]="'#78C000'"
-      [innerStrokeColor]="'#C7E596'"
-      [animation]="true"
-      [animationDuration]="600"
-    >
-    </circle-progress>
-
-    <div class="d-flex justify-content-center mt-2">
-      <td *ngIf="isAdmin">
-        <button class="btn btn-light m-3" routerLink="/editSkill/{{ skil.id }}">
-          <i class="bi bi-pencil-fill"></i>
-        </button>
-      </td>
-      <td *ngIf="isAdmin">
-        <button class="btn btn-danger m-3" (click)="delete(skil.id)">
-          <i class="bi bi-trash-fill"></i>
-        </button>
-      </td>
+  <div class="container text-center">
+    <div class="row justify-content-md-center" *ngIf="skill">
+      <div class=" col-lg-4 circulo"*ngFor="let skil of skill">
+        <circle-progress
+          [percent]="skil.porcentaje"
+          [radius]="90"
+          [imageSrc]="''"
+          [title]="skil.nombre"
+          [titleColor]="'#212F3C'"
+          [showTitle]="true"
+          [showImage]="false"
+          [imageHeight]="70"
+          [imageWidth]="70"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="true"
+          [animationDuration]="600"
+        ></circle-progress>
+        
+        <div class=" justify-content-center mt-2">
+          <td *ngIf="isAdmin">
+            <button class="btn btn-light m-3" routerLink="/editSkill/{{ skil.id }}">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+          </td>
+          <td *ngIf="isAdmin">
+            <button class="btn btn-danger m-3" (click)="delete(skil.id)">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </td>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </div>

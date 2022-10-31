@@ -26,9 +26,11 @@ export class NewProyectoComponent implements OnInit {
   ngOnInit(): void {
     this.sProyecto.lista().subscribe((data) => {
       this.proyectos = data;
-      this.long = this.proyectos[this.proyectos.length-1].id
-      console.log(this.long);
-      
+      if(this.proyectos.length == 0){
+        this.long = 1;
+      }else{
+        this.long = this.proyectos[this.proyectos.length - 1].id;
+      }
     });
   }
 

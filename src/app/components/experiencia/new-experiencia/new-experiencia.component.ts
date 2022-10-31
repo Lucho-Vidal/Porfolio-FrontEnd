@@ -23,7 +23,11 @@ export class NewExperienciaComponent implements OnInit {
   ngOnInit(): void {
     this.sExperiencia.lista().subscribe((data) => {
       this.experiencias = data;
-      this.long = this.experiencias[this.experiencias.length - 1].id;
+      if(this.experiencias.length == 0){
+        this.long = 1;
+      }else{
+        this.long = this.experiencias[this.experiencias.length - 1].id;
+      }
     });
   }
   onCreate(): void {
