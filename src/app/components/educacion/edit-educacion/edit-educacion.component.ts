@@ -27,8 +27,8 @@ export class EditEducacionComponent implements OnInit {
       data =>{
         this.educacion = data;
       }, err =>{
-         alert("Error al modificar");
-         this.router.navigate(['']);
+        alert("Error al modificar");
+        this.router.navigate(['']);
       }
     )
   }

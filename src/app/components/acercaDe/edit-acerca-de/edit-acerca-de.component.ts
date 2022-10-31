@@ -12,6 +12,7 @@ import  Swal  from 'sweetalert2';
 })
 export class EditAcercaDeComponent implements OnInit {
   persona:Persona=null;
+  contador:number;
   constructor(
     private activatedRouter: ActivatedRoute,
     private personaService: PersonaService,
@@ -72,4 +73,7 @@ export class EditAcercaDeComponent implements OnInit {
     }
     return url;
   }
+  onKey(event:any){
+    this.contador = event.target.value.length
+   }
 }

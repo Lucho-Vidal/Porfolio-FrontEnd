@@ -43,7 +43,7 @@ export class EditProyectoComponent implements OnInit {
         Swal.fire({
           position: 'top-end',
           icon: 'success',
-          title: 'La experiencia se guardo correctamente',
+          title: 'El proyecto se guardo correctamente',
           showConfirmButton: false,
           timer: 1500
         })
@@ -52,7 +52,7 @@ export class EditProyectoComponent implements OnInit {
         Swal.fire({
           position: 'top-end',
           icon: 'error',
-          title: 'La experiencia No se pudo guardar',
+          title: 'El proyecto No se pudo guardar',
           showConfirmButton: false,
           timer: 1500
         })
