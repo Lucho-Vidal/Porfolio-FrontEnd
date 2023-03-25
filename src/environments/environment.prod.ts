@@ -10,5 +10,6 @@ export const environment = {
     measurementId: 'G-XQCB7W5E8W',
   },
   production: true,
-  URL: 'https://luciano-vidal-portfolio.herokuapp.com/'
+  URL : 'https://backendluvidev.onrender.com'
+  // URL: 'https://luciano-vidal-portfolio.herokuapp.com/'
 };
